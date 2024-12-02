@@ -1,7 +1,20 @@
-import type { NextConfig } from "next";
+import { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  /* config options here */
+const nextConfig = {
+  experimental: {
+    serverActions: {
+      bodySizeLimit: "10mb", // Increase the limit
+    },
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
+    ],
+    unoptimized: true, // Disable image optimization
+  },
 };
 
 export default nextConfig;
